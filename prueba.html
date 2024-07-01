@@ -64,21 +64,48 @@
         <a href="Tienda.html#sec-5ae3" class="u-align-center u-border-none u-btn u-button-style u-palette-1-base u-btn-1" data-animation-out="0">PRODUCTOS </a>
       </div>
     </section>
-    <section class="u-dialog-section-4" id="pedido-section">
-      <div class="u-container-layout-1">
-        <h3 class="u-text-1">Realiza tu pedido</h3>
-        <div class="u-repeater-1">
-          <!-- Aquí se agregarán dinámicamente los productos -->
-        </div>
-        <div class="u-container-layout-2">
-          <div class="u-text-3">Total: <span id="total-amount">$0.00</span></div>
-        </div>
-        <div class="u-container-layout-3">
-          <button class="u-btn-1" id="whatsapp-btn">WhatsApp</button>
-          <button class="u-btn-1" id="email-btn">Correo</button>
-        </div>
+<section class="u-dialog-section-4" id="pedido-section">
+  <div class="u-container-layout-1">
+    <h3 class="u-text-1">Realiza tu pedido</h3>
+    <div class="u-repeater-1">
+      <!-- Aquí se agregarán dinámicamente los productos disponibles -->
+      <div class="u-product">
+        <span class="u-product-name">Producto 1</span>
+        <span class="u-product-price">$10.00</span>
+        <button class="u-btn u-btn-add" onclick="addToCart('Producto 1', 10.00)">Agregar al carrito</button>
       </div>
-    </section>
+      <div class="u-product">
+        <span class="u-product-name">Producto 2</span>
+        <span class="u-product-price">$20.00</span>
+        <button class="u-btn u-btn-add" onclick="addToCart('Producto 2', 20.00)">Agregar al carrito</button>
+      </div>
+      <!-- Puedes añadir más productos aquí -->
+    </div>
+    
+    <div class="u-container-layout-2">
+      <h4 class="u-text-2">Carrito de Compras</h4>
+      <table class="u-table u-table-cart">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Aquí se agregarán dinámicamente los productos en el carrito -->
+        </tbody>
+      </table>
+      <div class="u-text-3">Total: <span id="total-amount">$0.00</span></div>
+    </div>
+    
+    <div class="u-container-layout-3">
+      <button class="u-btn-1" id="whatsapp-btn">WhatsApp</button>
+      <button class="u-btn-1" id="email-btn">Correo</button>
+    </div>
+  </div>
+</section>
     <footer class="u-align-center u-black u-clearfix u-footer u-footer" id="sec-c48c"><div class="u-clearfix u-sheet u-sheet-1"><span class="u-file-icon u-icon u-icon-circle u-palette-1-base u-text-white u-icon-1" data-href="https://wa.me/4462220020" data-animation-name="shake" data-animation-duration="1000" data-animation-delay="0" data-animation-direction="" data-target="_blank" rel="nofollow"><img src="images/1384023-792058cd.png" alt=""></span>
         <p class="u-text u-text-default-lg u-text-default-xl u-text-1">@ VXG Store 2024 | Derechos reservados.<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5acaba3aa85a9a0b3a8ebb6acb1a0">[email&#160;protected]</a>
         </p>
@@ -225,96 +252,88 @@
     right: 20px;
   }
 }</style>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Función para añadir un producto al pedido
-  function addProduct(name, price) {
-    var newItem = document.createElement('div');
-    newItem.className = 'u-product-1';
-    newItem.innerHTML = `
-      <div class="u-product-quantity-1">
-        <button class="u-btn-1 u-btn-2" onclick="decreaseQuantity(this)">-</button>
-        <span class="u-text-2">1</span>
-        <button class="u-btn-1 u-btn-3" onclick="increaseQuantity(this)">+</button>
-      </div>
-      <div class="u-product-name-price-1">
-        <span class="u-text-4">${name}</span>
-        <span class="u-product-price-1">$${price.toFixed(2)}</span>
-      </div>
-      <button class="u-btn-1 u-btn-4" onclick="removeProduct(this)">Eliminar</button>
-    `;
-    var repeater = document.querySelector('.u-repeater-1');
-    repeater.appendChild(newItem);
-    
-    updateTotal();
-  }
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script>const cart = [];
 
-  // Función para actualizar el total
-  function updateTotal() {
-    var total = 0;
-    var items = document.querySelectorAll('.u-product-1');
-    items.forEach(function(item) {
-      var price = parseFloat(item.querySelector('.u-product-price-1').innerText.replace('$', ''));
-      var quantity = parseInt(item.querySelector('.u-text-2').innerText);
-      total += price * quantity;
-    });
-    document.getElementById('total-amount').innerText = `$${total.toFixed(2)}`;
-  }
-
-  // Función para incrementar la cantidad
-  function increaseQuantity(button) {
-    var quantityElement = button.parentElement.querySelector('.u-text-2');
-    var quantity = parseInt(quantityElement.innerText);
-    quantity++;
-    quantityElement.innerText = quantity;
-    updateTotal();
-  }
-
-  // Función para decrementar la cantidad
-  function decreaseQuantity(button) {
-    var quantityElement = button.parentElement.querySelector('.u-text-2');
-    var quantity = parseInt(quantityElement.innerText);
-    if (quantity > 1) {
-      quantity--;
-      quantityElement.innerText = quantity;
-      updateTotal();
+function addToCart(name, price) {
+  const existingItem = cart.find(item => item.name === name);
+  if (existingItem) {
+    if (existingItem.quantity < 10) {
+      existingItem.quantity++;
     }
+  } else {
+    cart.push({ name, price, quantity: 1 });
   }
+  updateCart();
+}
 
-  // Función para eliminar un producto del pedido
-  function removeProduct(button) {
-    button.parentElement.remove();
-    updateTotal();
-  }
+function updateCart() {
+  const cartItemsElement = document.getElementById('cart-items');
+  cartItemsElement.innerHTML = '';
+  let total = 0;
 
-  // Event listener para el botón de WhatsApp
-  document.getElementById('whatsapp-btn').addEventListener('click', function() {
-    var products = '';
-    var items = document.querySelectorAll('.u-product-1');
-    items.forEach(function(item) {
-      var name = item.querySelector('.u-text-4').innerText;
-      var quantity = item.querySelector('.u-text-2').innerText;
-      products += `${name} (${quantity} unidades), `;
-    });
-    var message = `Hola. Quisiera realizar el siguiente pedido:\nProductos: ${products}\nEl pago sería con transferencia.`;
-    var whatsappLink = `https://wa.me/4462220020?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, '_blank');
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>
+        <button class="u-btn" onclick="decreaseQuantity(${index})">-</button>
+        <span>${item.quantity}</span>
+        <button class="u-btn" onclick="increaseQuantity(${index})">+</button>
+      </td>
+      <td>$${itemTotal.toFixed(2)}</td>
+      <td><button class="u-btn u-btn-remove" onclick="removeFromCart(${index})">Eliminar</button></td>
+    `;
+    cartItemsElement.appendChild(row);
   });
 
-  // Event listener para el botón de Correo
-  document.getElementById('email-btn').addEventListener('click', function() {
-    var products = '';
-    var items = document.querySelectorAll('.u-product-1');
-    items.forEach(function(item) {
-      var name = item.querySelector('.u-text-4').innerText;
-      var quantity = item.querySelector('.u-text-2').innerText;
-      products += `${name} (${quantity} unidades), `;
-    });
-    var message = `Hola. Quisiera realizar el siguiente pedido:\nProductos: ${products}\nEl pago sería con transferencia.`;
-    var emailLink = `mailto:info@levm.site?subject=Pedido&body=${encodeURIComponent(message)}`;
-    window.location.href = emailLink;
-  });
+  document.getElementById('total-amount').innerText = `$${total.toFixed(2)}`;
+}
 
-  // Ejemplos de productos iniciales (puedes eliminarlos en producción)
-  addProduct('Item 1', 10.00);
-  addProduct('Item 2', 30.00);
-</script></body></html>
+function increaseQuantity(index) {
+  if (cart[index].quantity < 10) {
+    cart[index].quantity++;
+  }
+  updateCart();
+}
+
+function decreaseQuantity(index) {
+  if (cart[index].quantity > 1) {
+    cart[index].quantity--;
+  } else {
+    cart.splice(index, 1);
+  }
+  updateCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCart();
+}
+
+// Event listener para el botón de WhatsApp
+document.getElementById('whatsapp-btn').addEventListener('click', function() {
+  let products = '';
+  cart.forEach(item => {
+    products += `${item.name} (${item.quantity} unidades), `;
+  });
+  const message = `Hola. Quisiera realizar el siguiente pedido:\nProductos: ${products}\nEl pago sería con transferencia.`;
+  const whatsappLink = `https://wa.me/4462220020?text=${encodeURIComponent(message)}`;
+  window.open(whatsappLink, '_blank');
+});
+
+// Event listener para el botón de Correo
+document.getElementById('email-btn').addEventListener('click', function() {
+  let products = '';
+  cart.forEach(item => {
+    products += `${item.name} (${item.quantity} unidades), `;
+  });
+  const message = `Hola. Quisiera realizar el siguiente pedido:\nProductos: ${products}\nEl pago sería con transferencia.`;
+  const emailLink = `mailto:info@levm.site?subject=Pedido&body=${encodeURIComponent(message)}`;
+  window.location.href = emailLink;
+});
+</script>	  
+  </body></html>
