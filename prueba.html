@@ -14,36 +14,16 @@
     <link rel="icon" href="images/favicon.ico">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
-        "@context": "http://schema.org",
-        "@type": "Organization",
-        "name": "VXG Store",
-        "logo": "images/VXGStoreLogo.png"
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "VXG Store",
+		"logo": "images/VXGStoreLogo.png"
     }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Tienda">
     <meta property="og:description" content="Descubre VXG Store, tu tienda en línea de confianza para comprar videojuegos a los mejores precios en México. Ofrecemos una amplia selección para todas las plataformas, con pagos seguros y métodos autorizados. Encuentra los títulos que buscas a un precio más barato. ¡Compra ahora en VXG Store!">
     <meta property="og:type" content="website">
-    <meta data-intl-tel-input-cdn-path="intlTelInput/">
-    <script>
-        function sendOrder() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-            const product = document.getElementById('product').value;
-            const quantity = document.getElementById('quantity').value;
-            const orderDetails = `Nombre: ${name}\nCorreo: ${email}\nTeléfono: ${phone}\nProducto: ${product}\nCantidad: ${quantity}\nMensaje: ${message}`;
-            
-            // WhatsApp
-            const whatsappMessage = `https://wa.me/?text=${encodeURIComponent(orderDetails)}`;
-            window.open(whatsappMessage, '_blank');
-
-            // Correo
-            const mailto = `mailto:no-reply@levm.site?subject=Nuevo Pedido&body=${encodeURIComponent(orderDetails)}`;
-            window.open(mailto, '_blank');
-        }
-    </script>
-</head>
+    <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
 <body data-path-to-root="./" data-include-products="true" class="u-body u-xl-mode" data-lang="es">
 <header class="u-black u-clearfix u-header u-header" id="sec-47e7">
     <div class="u-clearfix u-sheet u-sheet-1">
@@ -53,16 +33,8 @@
         <nav class="u-menu u-menu-one-level u-menu-open-right u-offcanvas u-menu-1">
             <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
                 <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                    <svg class="u-svg-link" viewBox="0 0 24 24">
-                        <use xlink:href="#menu-hamburger"></use>
-                    </svg>
-                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <rect y="1" width="16" height="2"></rect>
-                            <rect y="7" width="16" height="2"></rect>
-                            <rect y="13" width="16" height="2"></rect>
-                        </g>
-                    </svg>
+                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+                    <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect></g></svg>
                 </a>
             </div>
             <div class="u-custom-menu u-nav-container">
@@ -92,49 +64,81 @@
 </header>
 <section class="u-align-center u-clearfix u-container-align-center u-image u-shading lazyload u-section-1" id="sec-1a74" data-image-width="900" data-image-height="730" data-bg="url('images/ps5-playstation-5-xbox-series-x-nintendo-switch.jpg')">
     <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h1 class="u-align-center u-text u-text-default u-title u-text-1">VENDEMOS LO QUE BUSCAS</h1>
+        <h1 class="u-align-center u-text u-text-default u-title u-text-1">VENDEMOS LO QUE BUSCAS </h1>
         <p class="u-align-center u-large-text u-text u-text-variant u-text-2">Si no lo tenemos, contáctanos y te lo conseguimos ¡a un menor precio!</p>
-        <a href="Tienda.html#sec-5ae3" class="u-align-center u-border-none u-btn u-button-style u-palette-1-base u-btn-1" data-animation-out="0">PRODUCTOS</a>
+        <a href="Tienda.html#sec-5ae3" class="u-align-center u-border-none u-btn u-button-style u-palette-1-base u-btn-1" data-animation-out="0">PRODUCTOS </a>
     </div>
 </section>
 <section class="u-clearfix u-section-2" id="sec-5ae3">
     <div class="u-clearfix u-sheet u-sheet-1">
-        <!-- Formulario para pedidos -->
-        <form>
-            <div>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" name="name" required>
+        <div class="u-expanded-width u-products u-products-1" data-site-sorting-prop="created" data-site-sorting-order="desc" data-products-datasource="site" data-items-per-page="3" data-products-id="1">
+            <div class="u-list-control"></div>
+            <div class="u-repeater u-repeater-1">
+                <!--product_item-->
+                <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="6">
+                    <div class="u-container-layout u-similar-container u-container-layout-1">
+                        <!--product_image-->
+                        <a class="u-product-title-link" href="https://link.clip.mx/vxgstore/producto/3a180167-795d-40cb-acd8-b1d8f8ba55f8">
+                            <img alt="" class="u-image u-image-default u-product-control lazyload u-image-1" data-src="images/EGS_1000VBucks_1920x1080-1920x1080-874f1246563fa2e19689c280b78f9ac3ca04eadf.png" src="images/EGS_1000VBucks_1920x1080-1920x1080-874f1246563fa2e19689c280b78f9ac3ca04eadf.png" data-image-width="1000" data-image-height="1500">
+                        </a>
+                        <!--/product_image-->
+                        <!--product_title-->
+                        <h4 class="u-product-control u-text u-text-default u-text-1">
+                            <a class="u-product-title-link" href="https://link.clip.mx/vxgstore/producto/3a180167-795d-40cb-acd8-b1d8f8ba55f8">1000 V-Bucks</a>
+                        </h4>
+                        <!--/product_title-->
+                        <!--product_price-->
+                        <div class="u-product-control u-product-price u-product-price-1">
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-1-base" style="font-size: 1.5rem; font-weight: 700;">$162.00</div>
+                            </div>
+                        </div>
+                        <!--/product_price-->
+                        <!--product_button-->
+                        <button class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-product-control u-btn-1" onclick="addToCart(6, '1000 V-Bucks', 162.00)">Agregar al Carrito</button>
+                        <!--/product_button-->
+                    </div>
+                </div>
+                <!--/product_item-->
+                <!--product_item-->
+                <div class="u-align-center u-container-style u-products-item u-repeater-item" data-product-id="5">
+                    <div class="u-container-layout u-similar-container u-container-layout-2">
+                        <!--product_image-->
+                        <a class="u-product-title-link" href="https://link.clip.mx/vxgstore/producto/865d231a-e2ab-4ab3-8524-d7bc7f400410">
+                            <img alt="" class="u-image u-image-default u-product-control lazyload u-image-2" data-src="images/robux.webp" src="images/robux.webp" data-image-width="760" data-image-height="507">
+                        </a>
+                        <!--/product_image-->
+                        <!--product_title-->
+                        <h4 class="u-product-control u-text u-text-default u-text-1">
+                            <a class="u-product-title-link" href="https://link.clip.mx/vxgstore/producto/865d231a-e2ab-4ab3-8524-d7bc7f400410">Robux</a>
+                        </h4>
+                        <!--/product_title-->
+                        <!--product_price-->
+                        <div class="u-product-control u-product-price u-product-price-1">
+                            <div class="u-price-wrapper u-spacing-10">
+                                <div class="u-price u-text-palette-1-base" style="font-size: 1.5rem; font-weight: 700;">$100.00</div>
+                            </div>
+                        </div>
+                        <!--/product_price-->
+                        <!--product_button-->
+                        <button class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-product-control u-btn-1" onclick="addToCart(5, 'Robux', 100.00)">Agregar al Carrito</button>
+                        <!--/product_button-->
+                    </div>
+                </div>
+                <!--/product_item-->
             </div>
-            <div>
-                <label for="email">Correo:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div>
-                <label for="phone">Teléfono:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
-            <div>
-                <label for="product">Producto:</label>
-                <input type="text" id="product" name="product" required>
-            </div>
-            <div>
-                <label for="quantity">Cantidad:</label>
-                <input type="number" id="quantity" name="quantity" min="1" max="10" required>
-            </div>
-            <div>
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message"></textarea>
-            </div>
-            <div>
-                <button type="button" onclick="sendOrder()">Enviar Pedido</button>
-            </div>
-        </form>
+        </div>
     </div>
 </section>
-<footer class="u-clearfix u-footer u-grey-80" id="sec-e3d6">
-    <div class="u-clearfix u-sheet u-sheet-1">
-        <p class="u-small-text u-text u-text-variant u-text-1">VXG Store 2023. Todos los derechos reservados.</p>
-    </div>
-</footer>
+<script>
+    function addToCart(productId, productName, productPrice) {
+        // Aquí va la lógica para agregar el producto al carrito
+        alert(`Producto agregado al carrito: ${productName} (${productPrice})`);
+        // Puedes almacenar el producto en el localStorage, por ejemplo:
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ id: productId, name: productName, price: productPrice });
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+</script>
 </body>
 </html>
