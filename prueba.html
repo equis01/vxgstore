@@ -14,10 +14,10 @@
     <link rel="icon" href="images/favicon.ico">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "VXG Store",
-		"logo": "images/VXGStoreLogo.png"
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "VXG Store",
+        "logo": "images/VXGStoreLogo.png"
     }</script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="Tienda">
@@ -96,6 +96,14 @@
                         <!--/product_price-->
                         <!--product_button-->
                         <button class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-product-control u-btn-1" onclick="addToCart(6, '1000 V-Bucks', 162.00)">Agregar al Carrito</button>
+                        <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                            <a class="u-social-url" title="WhatsApp" href="https://wa.me/?text=Estoy%20interesado%20en%20el%20producto%201000%20V-Bucks%20por%20$162.00" target="_blank">
+                                <img src="images/whatsapp.png" alt="WhatsApp" style="width: 32px;">
+                            </a>
+                            <a class="u-social-url" title="Correo" href="mailto:?subject=Interesado%20en%201000%20V-Bucks&body=Estoy%20interesado%20en%20el%20producto%201000%20V-Bucks%20por%20$162.00">
+                                <img src="images/email.png" alt="Correo" style="width: 32px;">
+                            </a>
+                        </div>
                         <!--/product_button-->
                     </div>
                 </div>
@@ -122,6 +130,14 @@
                         <!--/product_price-->
                         <!--product_button-->
                         <button class="u-active-none u-border-none u-btn u-button-style u-hover-none u-none u-product-control u-btn-1" onclick="addToCart(5, 'Robux', 100.00)">Agregar al Carrito</button>
+                        <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                            <a class="u-social-url" title="WhatsApp" href="https://wa.me/?text=Estoy%20interesado%20en%20el%20producto%20Robux%20por%20$100.00" target="_blank">
+                                <img src="images/whatsapp.png" alt="WhatsApp" style="width: 32px;">
+                            </a>
+                            <a class="u-social-url" title="Correo" href="mailto:?subject=Interesado%20en%20Robux&body=Estoy%20interesado%20en%20el%20producto%20Robux%20por%20$100.00">
+                                <img src="images/email.png" alt="Correo" style="width: 32px;">
+                            </a>
+                        </div>
                         <!--/product_button-->
                     </div>
                 </div>
@@ -132,9 +148,7 @@
 </section>
 <script>
     function addToCart(productId, productName, productPrice) {
-        // Aquí va la lógica para agregar el producto al carrito
         alert(`Producto agregado al carrito: ${productName} (${productPrice})`);
-        // Puedes almacenar el producto en el localStorage, por ejemplo:
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         cart.push({ id: productId, name: productName, price: productPrice });
         localStorage.setItem('cart', JSON.stringify(cart));
